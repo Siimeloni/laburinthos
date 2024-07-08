@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("laburinthos")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5e5e7d3c582bc26b931f69f0ce80ce2d26579c09")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bc9515ef160f6543150da0af1ec21edb6d361c31")]
 [assembly: System.Reflection.AssemblyProductAttribute("laburinthos")]
 [assembly: System.Reflection.AssemblyTitleAttribute("laburinthos")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
