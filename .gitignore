@@ -1,0 +1,9 @@
+*
+
+!.gitignore
+!README.md
+!laburinthos/
+!laburinthos/**
+
+laburinthos/bin/
+laburinthos/obj/
