@@ -25,10 +25,11 @@ public partial class MainWindow : Window
 
             int methode = MethodeComboBox.SelectedIndex;
             int modus = ModiComboBox.SelectedIndex;
-            if (5 <= byte.Parse(SizeTextBox.Text) && byte.Parse(SizeTextBox.Text) <= 50 ){
+            if (5 <= Int32.Parse(SizeTextBox.Text) && Int32.Parse(SizeTextBox.Text) <= 50 ){
                 byte size = byte.Parse(SizeTextBox.Text);
                 //hier der aufruf der GameManager Klasse (mit übergabe der Parameter)
-                BinaryTreeGenerator.GenerateLabyrinth(size);
+                //BinaryTreeGenerator.GenerateLabyrinth(size);
+                GameManager.LabyrinthInit(methode, modus, size);
             }else {
                 ErrorMessage.Background=Brushes.Red;
                 ErrorMessage.Text = "! Fehler ! Eingabe zwischen 5 und 50 !";
