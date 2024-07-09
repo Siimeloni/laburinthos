@@ -28,7 +28,6 @@ public partial class MainWindow : Window
             if (5 <= Int32.Parse(SizeTextBox.Text) && Int32.Parse(SizeTextBox.Text) <= 50 ){
                 byte size = byte.Parse(SizeTextBox.Text);
                 //hier der aufruf der GameManager Klasse (mit übergabe der Parameter)
-                //BinaryTreeGenerator.GenerateLabyrinth(size);
                 GameManager.LabyrinthInit(methode, modus, size);
             }else {
                 ErrorMessage.Background=Brushes.Red;
@@ -40,4 +39,5 @@ public partial class MainWindow : Window
             ErrorMessage.Text = "! Fehler ! Eingabe nicht korrekt !";
         }
     }
+
 }

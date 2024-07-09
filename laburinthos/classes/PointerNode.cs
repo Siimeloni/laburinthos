@@ -1,36 +1,34 @@
 using System;
-
-public enum PointerDirection {Up, Right, Down, Left, None};
+using Tmds.DBus.Protocol;
 
 public class PointerNode : Node {
 
-    PointerDirection ?pointer;
-    bool isOrigin = false;
+    Direction ?pointer;
 
     public PointerNode(byte X, byte Y, bool isOrigin, bool isLastInRow) : base(X,Y) {
         if (isLastInRow) {
             if (isOrigin) {
-                this.pointer = PointerDirection.None;
-                this.isOrigin = isOrigin;
+                this.pointer = null;
             } else {
-                this.pointer = PointerDirection.Down;
+                this.pointer = Direction.Down;
             }
         } else {
-            this.pointer = PointerDirection.Right;
+            this.pointer = Direction.Right;
         }
     }
 
-    public void makeOrigin() {
-        this.isOrigin = true;
-        this.pointer = PointerDirection.None;
+    public void MakeOrigin() {
+        this.pointer = null;
     }
 
-    public void setPointer(PointerDirection pntr) {
-        if (pntr == PointerDirection.None) {
+    public void SetPointer(Direction ?pntr) {
+        if (pntr == null) {
             throw new NotImplementedException();
         }
         this.pointer = pntr;
     }
 
-
+    public Direction? GetPointer() {
+        return this.pointer;
+    }
 }
