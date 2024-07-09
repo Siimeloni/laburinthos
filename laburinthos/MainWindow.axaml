@@ -8,6 +8,45 @@
         Icon="/Assets/icon.ico"
         SizeToContent="WidthAndHeight">
     
+    <Window.Styles>
+        <Style Selector="TextBlock.h1">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style Selector="TextBlock.h2">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style Selector="TextBlock.h3">
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+
+        <Style Selector="Button">
+            <Setter Property="CornerRadius" Value="0"/>
+            <Setter Property="Foreground" Value="#20283d"/>
+            <Setter Property="Background" Value="#f2d7c0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="Content" Value="Content Center"/>
+        </Style>
+        <Style Selector="Button:pointerover /template/ ContentPresenter">
+  		    <Setter Property="Background" Value="#e5b083"/>
+            <Setter Property="Foreground" Value="#20283d"/>
+  	    </Style>
+
+        <Style Selector="ComboBox">
+            <Setter Property="CornerRadius" Value="0"/>
+            <Setter Property="SelectedIndex" Value="0"/>
+            <Setter Property="MaxDropDownHeight" Value="100"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Foreground" Value="#20283d"/>
+            <Setter Property="Background" Value="#f2d7c0"/>
+        </Style>
+        <Style Selector="ComboBoxItem:selected /template/ ContentPresenter#PART_ContentPresenter">
+  		    <Setter Property="Background" Value="#e5b083"/>
+            <Setter Property="Foreground" Value="#20283d"/>
+  	    </Style>
+    </Window.Styles>
+
     <!-- Oberfläche -->
     <Grid Background="#20283d" 
         RowDefinitions="10*,80*,10*"
@@ -33,24 +72,24 @@
             Margin="20"
             TextElement.Foreground="#f2d7c0">
 
-            <TextBlock Margin="10" Text="Bitte Methode auswählen:"/>
+            <TextBlock Classes="h2" Margin="10" Text="Bitte Methode auswählen:"/>
             <ComboBox x:Name="MethodeComboBox">
                 <ComboBoxItem>Binary Tree</ComboBoxItem>
                 <ComboBoxItem>Origin Shift</ComboBoxItem>
                 <ComboBoxItem>Randomize Kruskal's</ComboBoxItem>
             </ComboBox>
 
-            <TextBlock Margin="10" Text="Größe für Grid bitte eintragen (5 - 50):"/>
+            <TextBlock Classes="h2" Margin="10" Text="Größe für Grid bitte eintragen (5 - 50):"/>
             <TextBox Margin="10" Watermark="5 ... 50" Foreground="#20283d" Background="#f2d7c0" 
             CornerRadius="0" Name="SizeTextBox"/>
 
-            <TextBlock Margin="10" Text="Bitte Spielmodus auswählen:"/>
+            <TextBlock Classes="h2" Margin="10" Text="Bitte Spielmodus auswählen:"/>
             <ComboBox x:Name="ModiComboBox">
                 <ComboBoxItem>Normal</ComboBoxItem>
                 <ComboBoxItem>Blind</ComboBoxItem>
             </ComboBox>
 
-            <TextBlock Margin="10" Foreground="#FFFFFF" Background="#20283d" x:Name="ErrorMessage"/>
+            <TextBlock Classes="h2" Margin="10" Foreground="#FFFFFF" Background="#20283d" x:Name="ErrorMessage"/>
 
             <Button Height="30" HorizontalAlignment="Stretch" Margin="10" Click="RunClick">
                 Labyrinth erstellen
