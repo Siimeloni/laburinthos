@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "laburinthos", "laburinthos\laburinthos.csproj", "{79226D1C-A682-47B7-B599-C8503A0BA080}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "laburinthos", "laburinthos\laburinthos.csproj", "{582DB05F-3496-44ED-B28F-72F8244F5183}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{79226D1C-A682-47B7-B599-C8503A0BA080}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{79226D1C-A682-47B7-B599-C8503A0BA080}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{79226D1C-A682-47B7-B599-C8503A0BA080}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{79226D1C-A682-47B7-B599-C8503A0BA080}.Release|Any CPU.Build.0 = Release|Any CPU
+		{582DB05F-3496-44ED-B28F-72F8244F5183}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{582DB05F-3496-44ED-B28F-72F8244F5183}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{582DB05F-3496-44ED-B28F-72F8244F5183}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{582DB05F-3496-44ED-B28F-72F8244F5183}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {A4CF32E5-B24B-4156-A606-5258AE64C4C0}
+		SolutionGuid = {1C5469CE-8DA7-4D23-BA91-7A93CA35E9D9}
 	EndGlobalSection
 EndGlobal
