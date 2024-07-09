@@ -2,8 +2,66 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="700" d:DesignHeight="400"
         x:Class="laburinthos.MainWindow"
-        Title="laburinthos">
-    Welcome to Avalonia!
+        Title="laburinthos"
+        Icon="/Assets/icon.ico"
+        SizeToContent="WidthAndHeight">
+    
+    <!-- Oberfläche -->
+    <Grid Background="#20283d" 
+        RowDefinitions="10*,80*,10*"
+        ColumnDefinitions="60*,35*,5*">
+
+        <!-- Kopfzeile  -->
+        <Image Grid.Row="0" Grid.Column="1" Margin="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+            Source="/Assets/laburinthos_logo.bmp"/>
+        <Button Width="30" Height="30" Grid.Row="0" Grid.Column="2" 
+        HorizontalAlignment="Right" VerticalAlignment="Top" Margin="15" Click="HelpClick">
+            ?
+        </Button>
+
+        <!-- Labyrinth linke Seite -->
+        <Image Grid.Row="1" Grid.Column="0" Margin="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+            Source="/Assets/test.bmp"/>
+
+        <!-- Einstellungen rechte Seite -->
+        <StackPanel 
+            Grid.Row="1" Grid.Column="1"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Margin="20"
+            TextElement.Foreground="#f2d7c0">
+
+            <TextBlock Margin="10" Text="Bitte Methode auswählen:"/>
+            <ComboBox x:Name="MethodeComboBox">
+                <ComboBoxItem>Binary Tree</ComboBoxItem>
+                <ComboBoxItem>Origin Shift</ComboBoxItem>
+                <ComboBoxItem>Randomize Kruskal's</ComboBoxItem>
+            </ComboBox>
+
+            <TextBlock Margin="10" Text="Größe für Grid bitte eintragen (5 - 50):"/>
+            <TextBox Margin="10" Watermark="5 ... 50" Foreground="#20283d" Background="#f2d7c0" 
+            CornerRadius="0" Name="SizeTextBox"/>
+
+            <TextBlock Margin="10" Text="Bitte Spielmodus auswählen:"/>
+            <ComboBox x:Name="ModiComboBox">
+                <ComboBoxItem>Normal</ComboBoxItem>
+                <ComboBoxItem>Blind</ComboBoxItem>
+            </ComboBox>
+
+            <TextBlock Margin="10" Foreground="#FFFFFF" Background="#20283d" x:Name="ErrorMessage"/>
+
+            <Button Height="30" HorizontalAlignment="Stretch" Margin="10" Click="RunClick">
+                Labyrinth erstellen
+            </Button>
+
+            <ProgressBar  Margin="10" Height="20" 
+                Minimum="0" Maximum="100" Value="0"
+                ShowProgressText="True" Foreground="#426e5d" Background="#f2d7c0" 
+                CornerRadius="0" x:Name="ProgressBar"/>
+        </StackPanel>
+        <!-- rechte Seite ENDE -->
+
+    </Grid>
 </Window>
