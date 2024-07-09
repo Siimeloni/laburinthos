@@ -1,0 +1,43 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="300"
+        x:Class="laburinthos.HelpWindow"
+        Title="Laburinthos"
+        Icon="/Assets/icon.ico"
+        SizeToContent="WidthAndHeight">
+
+    <Window.Styles>
+        <Style Selector="TextBlock.h1">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style Selector="TextBlock.h2">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style Selector="TextBlock.h3">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </Window.Styles>
+
+    <Grid Background="#20283d" 
+        RowDefinitions="*,*,*"
+        ColumnDefinitions="*">
+        <TextBlock Classes="h1" Grid.Row="0" Grid.Column="0" Margin="20" Foreground="#f2d7c0">
+            Nutzungshinweise zu Laburinthos
+        </TextBlock>
+        <TextBlock Classes="h3" Grid.Row="1" Grid.Column="0" Margin="20" Foreground="#f2d7c0"
+        xml:space="preserve" Name="HelpBox">
+            Es handelt sich um einen Labyrinth-Generator.
+            
+            Zur Verwendung:
+            1. Felder ausfüllen
+            2. Auf Button klicken Labyrinth erstellen
+            3. Spieler durch Labyrinth führen (mit Pfeiltasten)
+        </TextBlock>
+
+    </Grid>
+
+</Window>
