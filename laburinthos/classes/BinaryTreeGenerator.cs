@@ -12,6 +12,8 @@ public static class BinaryTreeGenerator{
                 ChooseDirection(NodeGrid[row,col]);
             }
         }
+
+        LabyrinthPrinter.PrintLabyrinthConnection(NodeGrid, size);
     }
 
     static ConnectionNode[,] ConstructGrid(byte size) {
