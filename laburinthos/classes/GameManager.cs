@@ -17,10 +17,10 @@ public class GameManager{
                 BinaryTreeGenerator.GenerateLabyrinth(size);
                 break;
             case 1:
-                //OriginShiftGenerator.GenerateLabyrinth(size);
+                OriginShiftGenerator.GenerateLabyrinth(size);
                 break;
             case 2:
-                //RandomizeKruskalGenerator.GenerateLabyrinth(size);
+                KruskalGenerator.GenerateLabyrinth(size);
                 break;
         }
     }
