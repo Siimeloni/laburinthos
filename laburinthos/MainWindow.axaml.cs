@@ -1,7 +1,13 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Media;
+using Avalonia.Media.Imaging;
+using Avalonia.Platform;
 using System;
+using System.IO;
+using System.Drawing;
+using System.Drawing.Imaging;
+using Avalonia.Markup.Xaml;
 
 namespace laburinthos;
 
@@ -40,4 +46,8 @@ public partial class MainWindow : Window
         }
     }
 
+    public void ImgShow(string text){
+        ImgLabyrinth.Source = text;
+    }
+    
 }

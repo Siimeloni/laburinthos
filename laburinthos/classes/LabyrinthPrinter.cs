@@ -1,4 +1,5 @@
 using System;
+using laburinthos;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
@@ -31,7 +32,9 @@ public static class LabyrinthPrinter {
         image[imageSize-2, imageSize-1] = Path;
 
         image.Mutate(x => x.Resize(scaledImageSize,scaledImageSize, KnownResamplers.NearestNeighbor));
-        image.SaveAsBmp("labyrinth.bmp");
+        string text = "labyrinth.bmp";
+        image.SaveAsBmp(text);
+        
     }
 
 }

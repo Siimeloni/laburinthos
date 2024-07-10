@@ -62,7 +62,7 @@
 
         <!-- Labyrinth linke Seite -->
         <Image Grid.Row="1" Grid.Column="0" Margin="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-            Source="/Assets/test.bmp"/>
+            x:Name="ImgLabyrinth"/>
 
         <!-- Einstellungen rechte Seite -->
         <StackPanel 
