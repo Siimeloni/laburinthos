@@ -32,9 +32,6 @@ public static class LabyrinthPrinter {
         image[imageSize-2, imageSize-1] = Path;
 
         image.Mutate(x => x.Resize(scaledImageSize,scaledImageSize, KnownResamplers.NearestNeighbor));
-        string text = "labyrinth.bmp";
-        image.SaveAsBmp(text);
-        
+        image.SaveAsBmp("Assets/labyrinth.bmp");
     }
-
 }
