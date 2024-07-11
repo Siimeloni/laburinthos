@@ -21,7 +21,7 @@ public partial class MainWindow : Window
         InitializeComponent();
         DataContext = new MainViewModel();
         context = (MainViewModel)DataContext;
-        context.UpdateImage("Assets/test.bmp");
+        context.UpdateImage("Assets/default.bmp");
     }
 
     private void HelpClick(object sender, RoutedEventArgs e)
