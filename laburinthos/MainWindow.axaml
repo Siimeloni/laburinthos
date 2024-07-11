@@ -4,9 +4,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="700" d:DesignHeight="400"
         x:Class="laburinthos.MainWindow"
+        xmlns:vm="clr-namespace:laburinthos.ViewModels"
         Title="laburinthos"
         Icon="/Assets/icon.ico"
-        SizeToContent="WidthAndHeight">
+        SizeToContent="WidthAndHeight"
+        x:DataType="vm:MainViewModel">
     
     <Window.Styles>
         <Style Selector="TextBlock.h1">
@@ -62,7 +64,7 @@
 
         <!-- Labyrinth linke Seite -->
         <Image Grid.Row="1" Grid.Column="0" Margin="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-            Source="/Assets/test.bmp"/>
+            Source="{Binding CurrentImage}"/>
 
         <!-- Einstellungen rechte Seite -->
         <StackPanel 

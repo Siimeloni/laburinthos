@@ -1,16 +1,29 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Media;
+using Avalonia.Media.Imaging;
+using Avalonia.Platform;
+using laburinthos.ViewModels;
 using System;
+using System.IO;
+using System.Drawing;
+using System.Drawing.Imaging;
+using Avalonia.Markup.Xaml;
 
 namespace laburinthos;
 
 public partial class MainWindow : Window
 {
+    static MainViewModel context;
+
     public MainWindow()
     {
         InitializeComponent();
+        DataContext = new MainViewModel();
+        context = (MainViewModel)DataContext;
+        context.UpdateImage("Assets/default.bmp");
     }
+
     private void HelpClick(object sender, RoutedEventArgs e)
     {
         var window = new HelpWindow();
@@ -29,6 +42,8 @@ public partial class MainWindow : Window
                 byte size = byte.Parse(SizeTextBox.Text);
                 //hier der aufruf der GameManager Klasse (mit übergabe der Parameter)
                 GameManager.LabyrinthInit(methode, modus, size);
+
+                context.UpdateImage("Assets/labyrinth.bmp");
             }else {
                 ErrorMessage.Background=Brushes.Red;
                 ErrorMessage.Text = "! Fehler ! Eingabe zwischen 5 und 50 !";
@@ -39,5 +54,5 @@ public partial class MainWindow : Window
             ErrorMessage.Text = "! Fehler ! Eingabe nicht korrekt !";
         }
     }
-
+    
 }
