@@ -28,9 +28,8 @@ public class GameManager{
         }
     }
 
-    public static void Moving(MenuItem direction){
-        var test = direction.HotKey;
-        System.Console.WriteLine(test);
+    public static void Moving(Direction direction){
+        System.Console.WriteLine(direction);
     }
 
 }

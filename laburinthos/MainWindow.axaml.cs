@@ -25,10 +25,7 @@ public partial class MainWindow : Window
         context = (MainViewModel)DataContext;
         context.UpdateImage("Assets/default.bmp");
         
-        var Item = this.FindControl<Avalonia.Controls.MenuItem>("Item");
-        HotKeyManager.GetHotKey(Item);
-        //HotKeyManager.SetHotKey(Item, new KeyGesture(Key.Down, KeyModifiers.Control));
-        GameManager.Moving(Item);
+        this.KeyDown += OnKeyDown;
     }
 
     private void HelpClick(object sender, RoutedEventArgs e)
@@ -60,6 +57,29 @@ public partial class MainWindow : Window
             ErrorMessage.Background=Brushes.Red;
             ErrorMessage.Text = "! Fehler ! Eingabe nicht korrekt !";
         }
+    }
+
+    private void OnKeyDown(object sender, KeyEventArgs e) {
+        switch (e.Key) {
+            case Key.W:
+                GameManager.Moving(Direction.Up);
+                break;
+            case Key.A:
+                GameManager.Moving(Direction.Left);
+                break;
+            case Key.S:
+                GameManager.Moving(Direction.Down);
+                break;
+            case Key.D:
+                GameManager.Moving(Direction.Right);
+                break;
+            case Key.N:
+                RunClick(this, new RoutedEventArgs(Button.ClickEvent));
+                break;
+            default:
+                break;
+        }
+
     }
     
 }
