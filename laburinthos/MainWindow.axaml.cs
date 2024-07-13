@@ -9,6 +9,8 @@ using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
 using Avalonia.Markup.Xaml;
+using Avalonia.Input;
+using System.Xml.Serialization;
 
 namespace laburinthos;
 
@@ -22,6 +24,11 @@ public partial class MainWindow : Window
         DataContext = new MainViewModel();
         context = (MainViewModel)DataContext;
         context.UpdateImage("Assets/default.bmp");
+        
+        var Item = this.FindControl<Avalonia.Controls.MenuItem>("Item");
+        HotKeyManager.GetHotKey(Item);
+        //HotKeyManager.SetHotKey(Item, new KeyGesture(Key.Down, KeyModifiers.Control));
+        GameManager.Moving(Item);
     }
 
     private void HelpClick(object sender, RoutedEventArgs e)

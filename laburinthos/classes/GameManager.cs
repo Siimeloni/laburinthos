@@ -1,4 +1,7 @@
 using System;
+using Avalonia.Controls;
+using Avalonia.Input;
+using System.Xml.Serialization;
 
 public class GameManager{
     enum Method{
@@ -23,6 +26,11 @@ public class GameManager{
                 KruskalGenerator.GenerateLabyrinth(size);
                 break;
         }
+    }
+
+    public static void Moving(MenuItem direction){
+        var test = direction.HotKey;
+        System.Console.WriteLine(test);
     }
 
 }
