@@ -6,6 +6,7 @@ using System.Data;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using laburinthos;
 using System.Collections.Generic;
+using laburinthos.ViewModels;
 
 public class GameManager{
     enum Method{
@@ -18,8 +19,6 @@ public class GameManager{
         blind
     }
 
-    static Direction way;
-    static int[] pos;
     static byte size;
     static ConnectionNode[,] grid;
 
@@ -36,9 +35,10 @@ public class GameManager{
                 grid = KruskalGenerator.GenerateLabyrinth(size);
                 break;
         }
+        LabyrinthPrinter.PrintLabyrinthConnection(grid, size);
     }
 
-    public static void Moving(Direction direction){
+    public static void Moving(Direction direction, MainViewModel context){
 
         Player Plyr = new Player();
 
@@ -47,24 +47,28 @@ public class GameManager{
                 if (grid[Plyr.PositionY,Plyr.PositionX].connections[0] == true) {
                     Plyr.MoveUp();
                     LabyrinthPrinter.PrintPlayerMovement([Plyr.PositionX,Plyr.PositionY], Direction.Up);
+                    context.UpdateImage("Assets/labyrinth.bmp");
                 }
                 break;
             case Direction.Left:
                 if (grid[Plyr.PositionY,Plyr.PositionX].connections[3] == true) {
                     Plyr.MoveLeft();
                     LabyrinthPrinter.PrintPlayerMovement([Plyr.PositionX,Plyr.PositionY], Direction.Left);
+                    context.UpdateImage("Assets/labyrinth.bmp");
                 }
                 break;
             case Direction.Down:
                 if (grid[Plyr.PositionY,Plyr.PositionX].connections[2] == true) {
                     Plyr.MoveDown();
                     LabyrinthPrinter.PrintPlayerMovement([Plyr.PositionX,Plyr.PositionY], Direction.Down);
+                    context.UpdateImage("Assets/labyrinth.bmp");
                 }
                 break;
             case Direction.Right:
                 if (grid[Plyr.PositionY,Plyr.PositionX].connections[1] == true) {
                     Plyr.MoveRight();
                     LabyrinthPrinter.PrintPlayerMovement([Plyr.PositionX,Plyr.PositionY], Direction.Right);
+                    context.UpdateImage("Assets/labyrinth.bmp");
                 }
                 break;
         }
