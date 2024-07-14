@@ -17,60 +17,61 @@ public class GameManager{
         normal,
         blind
     }
-    enum Direction{
-        Up,
-        Down,
-        Right,
-        Left
-    }
+
     static Direction way;
     static int[] pos;
     static byte size;
+    static ConnectionNode[,] grid;
 
     public static void LabyrinthInit(int method, int modus, byte Size){
         size = Size;
         switch (method){
             case 0:
-                BinaryTreeGenerator.GenerateLabyrinth(size);
+                grid = BinaryTreeGenerator.GenerateLabyrinth(size);
                 break;
             case 1:
-                OriginShiftGenerator.GenerateLabyrinth(size);
+                grid = OriginShiftGenerator.GenerateLabyrinth(size);
                 break;
             case 2:
-                KruskalGenerator.GenerateLabyrinth(size);
+                grid = KruskalGenerator.GenerateLabyrinth(size);
                 break;
         }
     }
 
-    public static void Moving(string direction){
-        Player Spieler = new Player();
+    public static void Moving(Direction direction){
+
+        Player Plyr = new Player();
+
         switch (direction) {
-            case "Up":
-                int[] pos = Spieler.move_up();
-                Direction way = Direction.Up;
+            case Direction.Up:
+                if (grid[Plyr.PositionY,Plyr.PositionX].connections[0] == true) {
+                    Plyr.MoveUp();
+                    LabyrinthPrinter.PrintPlayerMovement([Plyr.PositionX,Plyr.PositionY], Direction.Up);
+                }
                 break;
-            case "Left":
-                pos = Spieler.move_left();
-                way = Direction.Left;
+            case Direction.Left:
+                if (grid[Plyr.PositionY,Plyr.PositionX].connections[3] == true) {
+                    Plyr.MoveLeft();
+                    LabyrinthPrinter.PrintPlayerMovement([Plyr.PositionX,Plyr.PositionY], Direction.Left);
+                }
                 break;
-            case "Down":
-                pos = Spieler.move_down();
-                way = Direction.Down;
+            case Direction.Down:
+                if (grid[Plyr.PositionY,Plyr.PositionX].connections[2] == true) {
+                    Plyr.MoveDown();
+                    LabyrinthPrinter.PrintPlayerMovement([Plyr.PositionX,Plyr.PositionY], Direction.Down);
+                }
                 break;
-            case "Right":
-                pos = Spieler.move_right();
-                way = Direction.Right;
+            case Direction.Right:
+                if (grid[Plyr.PositionY,Plyr.PositionX].connections[1] == true) {
+                    Plyr.MoveRight();
+                    LabyrinthPrinter.PrintPlayerMovement([Plyr.PositionX,Plyr.PositionY], Direction.Right);
+                }
                 break;
         }
         //check if player is on end-node:
-        if (pos[0]==size-1 && pos[1]==size-1){
+        if (Plyr.PositionX==size-1 && Plyr.PositionY==size-1){
             System.Console.WriteLine("Congratulations, you did it. The game is over.");
-        }
-
-        //handover to labyrinthprinter:
-        LabyrinthPrinter.PrintLabyrinthConnection(pos,way);
-
-        
+        }        
     }
 
 }

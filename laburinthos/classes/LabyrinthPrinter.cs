@@ -34,4 +34,8 @@ public static class LabyrinthPrinter {
         image.Mutate(x => x.Resize(scaledImageSize,scaledImageSize, KnownResamplers.NearestNeighbor));
         image.SaveAsBmp("Assets/labyrinth.bmp");
     }
+
+    public static void PrintPlayerMovement(int[] position, Direction direction) {
+        throw new NotImplementedException();
+    }
 }

@@ -7,7 +7,7 @@ public static class KruskalGenerator{
     static List<Connection> ConnectionList; 
     static byte LabyrinthSize;
 
-    public static void GenerateLabyrinth(byte size) {
+    public static ConnectionNode[,] GenerateLabyrinth(byte size) {
         LabyrinthSize = size;
         NodeGrid = ConstructGrid();
         ConnectionList = ConstructConnections(NodeGrid);
@@ -25,7 +25,7 @@ public static class KruskalGenerator{
             }
         }
         
-        LabyrinthPrinter.PrintLabyrinthConnection(NodeGrid, LabyrinthSize);
+        return NodeGrid;
     }
 
     static ConnectionNode[,] ConstructGrid() {

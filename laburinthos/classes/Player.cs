@@ -1,22 +1,23 @@
 using System;
 
 public class Player{
-    private int pos_x=0, pos_y=0;
-    public int[] move_right(){
-        pos_x = pos_x + 1;
-        return new [] {pos_x, pos_y};
+
+    private int posX=0, posY=0;
+
+    public int PositionX { get => posX; }
+    public int PositionY { get => posY; }
+
+    public void MoveRight(){
+        posX = posX + 1;
     }
-    public int[] move_left(){
-        pos_x = pos_x - 1;
-        return new [] {pos_x, pos_y};
+    public void MoveLeft(){
+        posX = posX - 1;
     }
-    public int[] move_up(){
-        pos_y = pos_y - 1;
-        return new [] {pos_x, pos_y};
+    public void MoveUp(){
+        posY = posY - 1;
     }
-    public int[] move_down(){
-        pos_y = pos_y + 1;
-        return new [] {pos_x, pos_y};
+    public void MoveDown(){
+        posY = posY + 1;
     }
 
 }

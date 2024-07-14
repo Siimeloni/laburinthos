@@ -65,19 +65,19 @@ public partial class MainWindow : Window
         switch (e.Key) {
             case Key.Up:
             case Key.W:
-                GameManager.Moving("Up");
+                GameManager.Moving(Direction.Up);
                 break;
             case Key.Left:
             case Key.A:
-                GameManager.Moving("Left");
+                GameManager.Moving(Direction.Left);
                 break;
             case Key.Down:
             case Key.S:
-                GameManager.Moving("Down");
+                GameManager.Moving(Direction.Down);
                 break;
             case Key.Right:
             case Key.D:
-                GameManager.Moving("Right");
+                GameManager.Moving(Direction.Right);
                 break;
             case Key.N:
                 RunClick(this, new RoutedEventArgs(Button.ClickEvent));
