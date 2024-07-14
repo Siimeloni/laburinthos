@@ -2,6 +2,8 @@ using System;
 using Avalonia.Controls;
 using Avalonia.Input;
 using System.Xml.Serialization;
+using System.Data;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 public class GameManager{
     enum Method{
@@ -13,6 +15,8 @@ public class GameManager{
         normal,
         blind
     }
+    public int[] pos;
+    byte size;
 
     public static void LabyrinthInit(int method, int modus, byte size){
         switch (method){
@@ -28,8 +32,25 @@ public class GameManager{
         }
     }
 
-    public static void Moving(Direction direction){
-        System.Console.WriteLine(direction);
+    public static void Moving(string direction){
+        Player Spieler = new Player();
+        switch (direction) {
+            case "Up":
+                int[] pos = Spieler.move_up();
+                break;
+            case "Left":
+                pos = Spieler.move_left();
+                break;
+            case "Down":
+                pos = Spieler.move_down();
+                break;
+            case "Right":
+                pos = Spieler.move_right();
+                break;
+        }
+        //check if player is on end-node:
+        //if (pos[0]==BitConverter.ToInt32(size,0)-1 && pos[1]==BitConverter.ToInt32(size,0)-1){}
+        
     }
 
 }
