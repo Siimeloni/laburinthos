@@ -51,6 +51,7 @@ public partial class MainWindow : Window
 
                 //hier der aufruf der GameManager Klasse (mit übergabe der Parameter)
                 GameManager.LabyrinthInit(method, modus, size);
+                GameManager.PlayerInit();
                 context.UpdateImage("Assets/labyrinth.bmp");
             }else {
                 ErrorMessage.Background=Brushes.Red;

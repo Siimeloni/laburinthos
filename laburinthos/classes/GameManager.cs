@@ -21,6 +21,7 @@ public class GameManager{
 
     static byte size;
     static ConnectionNode[,] grid;
+    static Player Plyr;
 
     public static void LabyrinthInit(int method, int modus, byte Size){
         size = Size;
@@ -38,9 +39,12 @@ public class GameManager{
         LabyrinthPrinter.PrintLabyrinthConnection(grid, size);
     }
 
+    public static void PlayerInit() {
+        Plyr = new Player();
+    }
+
     public static void Moving(Direction direction, MainViewModel context){
 
-        Player Plyr = new Player();
 
         switch (direction) {
             case Direction.Up:
