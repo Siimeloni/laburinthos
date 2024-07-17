@@ -78,7 +78,7 @@
             <ComboBox x:Name="MethodeComboBox">
                 <ComboBoxItem>Binary Tree</ComboBoxItem>
                 <ComboBoxItem>Origin Shift</ComboBoxItem>
-                <ComboBoxItem>Randomize Kruskal's</ComboBoxItem>
+                <ComboBoxItem>Randomized Kruskal's</ComboBoxItem>
             </ComboBox>
 
             <TextBlock Classes="h2" Margin="10" Text="Größe für Grid bitte eintragen (5 - 50):"/>
