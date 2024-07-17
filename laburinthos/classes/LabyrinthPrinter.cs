@@ -14,7 +14,7 @@ public static class LabyrinthPrinter {
     static Rgb24 PlayerColor = new Rgb24(149, 49, 49);        // Color of the Players Position
     static Rgb24 PlayerPathColor = new Rgb24(193, 112, 112);  // Color of all Paths the Player has already stepped on
 
-    public static void PrintLabyrinthConnection(ConnectionNode[,] grid, byte size) {
+    public static void PrintLabyrinth(ConnectionNode[,] grid, byte size) {
         imageSize = 2*size+1;
         image = new Image<Rgb24>(imageSize, imageSize);
         scaledImageSize = (int)(imageSize*Math.Floor(700.0/imageSize));

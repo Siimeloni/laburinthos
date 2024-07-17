@@ -35,7 +35,7 @@ public class GameManager {
                 break;
         }
 
-        LabyrinthPrinter.PrintLabyrinthConnection(grid, size);
+        LabyrinthPrinter.PrintLabyrinth(grid, size);
     }
 
     public static void PlayerInit() {
@@ -86,7 +86,7 @@ public class GameManager {
             System.Console.WriteLine("Congratulations, you did it. The game is over.");
             isActive = false;
             LabyrinthPrinter.PrintFinalStep();
-            context.UpdateImage("Assets/labyrinth.bmp");
+            context.UpdateImage(FilePath);
     }
 
 }
