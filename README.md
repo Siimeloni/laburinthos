@@ -38,7 +38,7 @@ Nach dem Start der Anwendung ist auf der linken Seite ein "default"-Labyrinth er
 Zuerst erfolgt, durch eine ComboBox, die Auswahlmöglichkeit eines Algorithmus. Hierbei ist der "Binary Tree" standartmäßig gesetzt. Anschließend kann die Größe des Labyrinth bestimmt werden. Die Kantenlänge darf hier in einem Bereich von 5 bis 50 liegen, damit eine ausreichend gute Auflösung gewährleistet werden kann. In einer weiteren ComboBox ist der Spielmodus ("normal"(standartmäßig) oder "blind") auszuwählen. 
 Durch die betätigung des Buttons wird das Labyrintherstellt. 
 
-Die Steuerung des Spielers (Farbiger Pixel) erfolgt über die Pfeiltasten der Tastatur oder über die Tasten W-A-S-D. Der Spieler startet stehts in der linken oberen Ecke und muss das letzte rechte untere Feld erreichen. Das "Laufen" ist nur auf den Wegen möglich, während Wände undurchdringlich sind. Sollte der Spieler das Ziel erreichen, wird er informiert und es sind keine weiteren BEwegungen mehr möglich. 
+Die Steuerung des Spielers (Farbiger Pixel) erfolgt über die Pfeiltasten der Tastatur oder über die Tasten W-A-S-D. Mit der Taste "N" kann ein neues Labyrinth, mit den gleichen Einstellungen, erstelt werden. Der Spieler startet stehts in der linken oberen Ecke und muss das letzte rechte untere Feld erreichen. Das "Laufen" ist nur auf den Wegen möglich, während Wände undurchdringlich sind. Sollte der Spieler das Ziel erreichen, wird er informiert und es sind keine weiteren BEwegungen mehr möglich. 
 
 ## Klassendiagramm
 
