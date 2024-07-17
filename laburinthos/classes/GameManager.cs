@@ -1,11 +1,3 @@
-using System;
-using Avalonia.Controls;
-using Avalonia.Input;
-using System.Xml.Serialization;
-using System.Data;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using laburinthos;
-using System.Collections.Generic;
 using laburinthos.ViewModels;
 
 public class GameManager{

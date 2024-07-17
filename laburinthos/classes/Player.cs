@@ -1,5 +1,3 @@
-using System;
-
 public class Player{
 
     private int posX=0, posY=0;

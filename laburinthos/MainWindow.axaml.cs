@@ -1,16 +1,10 @@
-using Avalonia.Controls;
 using Avalonia.Interactivity;
+using Avalonia.Controls;
 using Avalonia.Media;
-using Avalonia.Media.Imaging;
-using Avalonia.Platform;
+using Avalonia.Input;
 using laburinthos.ViewModels;
 using System;
-using System.IO;
-using System.Drawing;
-using System.Drawing.Imaging;
-using Avalonia.Markup.Xaml;
-using Avalonia.Input;
-using System.Xml.Serialization;
+
 
 namespace laburinthos;
 
