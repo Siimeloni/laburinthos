@@ -91,7 +91,7 @@
                 <ComboBoxItem>Blind</ComboBoxItem>
             </ComboBox>
 
-            <TextBlock Classes="h2" Margin="10" Foreground="#FFFFFF" Background="#20283d" x:Name="ErrorMessage"/>
+            <TextBlock Classes="h2" Margin="10" Padding="4" TextAlignment="Center" Foreground="#f2d7c0" Background="#20283d" x:Name="ErrorMessage"/>
 
             <Button Height="30" HorizontalAlignment="Stretch" Margin="10" Click="RunClick">
                 Labyrinth erstellen
