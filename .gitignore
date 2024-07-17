@@ -1,5 +1,7 @@
 *
 
+!.vscode/
+!.vscode/**
 !.gitignore
 !README.md
 !laburinthos.sln

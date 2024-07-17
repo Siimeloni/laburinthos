@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Avalonia",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceFolder}/laburinthos/bin/Debug/net8.0/laburinthos.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/laburinthos",
+            "stopAtEntry": false,
+            "console": "internalConsole",
+            "logging": {
+                "engineLogging": false
+            },
+            "internalConsoleOptions": "openOnSessionStart",
+        }
+    ]
+}
