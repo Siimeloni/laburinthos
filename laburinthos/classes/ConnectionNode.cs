@@ -3,7 +3,7 @@ using System.Collections;
 
 public enum Direction {Up, Right, Down, Left};
 
-public class ConnectionNode : Node{
+public class ConnectionNode : Node {
 
     public BitArray connections = new BitArray(4);
     public int set;

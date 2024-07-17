@@ -1,20 +1,13 @@
-using System;
-using Avalonia.Controls;
-using Avalonia.Input;
-using System.Xml.Serialization;
-using System.Data;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using laburinthos;
-using System.Collections.Generic;
 using laburinthos.ViewModels;
 
-public class GameManager{
-    enum Method{
+public class GameManager {
+
+    enum Method {
         BinaryTree,
         OriginShift,
         RandomizeKruskal
     }
-    enum Modus{
+    enum Modus {
         normal,
         blind
     }
@@ -23,9 +16,9 @@ public class GameManager{
     static ConnectionNode[,] grid;
     static Player Plyr;
 
-    public static void LabyrinthInit(int method, int modus, byte Size){
+    public static void LabyrinthInit(int method, int modus, byte Size) {
         size = Size;
-        switch (method){
+        switch (method) {
             case 0:
                 grid = BinaryTreeGenerator.GenerateLabyrinth(size);
                 break;
@@ -43,9 +36,7 @@ public class GameManager{
         Plyr = new Player();
     }
 
-    public static void Moving(Direction direction, MainViewModel context){
-
-
+    public static void Moving(Direction direction, MainViewModel context) {
         switch (direction) {
             case Direction.Up:
                 if (grid[Plyr.PositionY,Plyr.PositionX].connections[0] == true) {
@@ -76,8 +67,9 @@ public class GameManager{
                 }
                 break;
         }
+
         //check if player is on end-node:
-        if (Plyr.PositionX==size-1 && Plyr.PositionY==size-1){
+        if (Plyr.PositionX==size-1 && Plyr.PositionY==size-1) {
             System.Console.WriteLine("Congratulations, you did it. The game is over.");
         }        
     }
