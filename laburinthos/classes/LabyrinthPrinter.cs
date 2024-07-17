@@ -7,6 +7,7 @@ public static class LabyrinthPrinter {
 
     static Image<Rgb24> image;
     static int scaledImageSize;
+    static int imageSize;
 
     static Rgb24 WallColor = new Rgb24(66, 110, 93);          // Color of Walls
     static Rgb24 PathColor = new Rgb24(229, 176, 131);        // Color of Paths
@@ -14,7 +15,7 @@ public static class LabyrinthPrinter {
     static Rgb24 PlayerPathColor = new Rgb24(193, 112, 112);  // Color of all Paths the Player has already stepped on
 
     public static void PrintLabyrinthConnection(ConnectionNode[,] grid, byte size) {
-        int imageSize = 2*size+1;
+        imageSize = 2*size+1;
         image = new Image<Rgb24>(imageSize, imageSize);
         scaledImageSize = (int)(imageSize*Math.Floor(700.0/imageSize));
 
@@ -46,28 +47,35 @@ public static class LabyrinthPrinter {
 
         switch (direction) {
             case Direction.Up:
-                image[posX,posY]=PlayerColor;
-                image[posX,posY+1]=PlayerPathColor;
-                image[posX,posY+2]=PlayerPathColor;
+                image[posX,posY] = PlayerColor;
+                image[posX,posY+1] = PlayerPathColor;
+                image[posX,posY+2] = PlayerPathColor;
                 break;
             case Direction.Right:
-                image[posX,posY]=PlayerColor;
-                image[posX-1,posY]=PlayerPathColor;
-                image[posX-2,posY]=PlayerPathColor;
+                image[posX,posY] = PlayerColor;
+                image[posX-1,posY] = PlayerPathColor;
+                image[posX-2,posY] = PlayerPathColor;
                 break;
             case Direction.Down:
-                image[posX,posY]=PlayerColor;
-                image[posX,posY-1]=PlayerPathColor;
-                image[posX,posY-2]=PlayerPathColor;
+                image[posX,posY] = PlayerColor;
+                image[posX,posY-1] = PlayerPathColor;
+                image[posX,posY-2] = PlayerPathColor;
                 break;
             case Direction.Left:
-                image[posX,posY]=PlayerColor;
-                image[posX+1,posY]=PlayerPathColor;
-                image[posX+2,posY]=PlayerPathColor;
+                image[posX,posY] = PlayerColor;
+                image[posX+1,posY] = PlayerPathColor;
+                image[posX+2,posY] = PlayerPathColor;
                 break;
             default:
                 break;
         }
+
+        SaveImage(image);
+    }
+
+    public static void PrintFinalStep() {
+        image[imageSize-2,imageSize-1] = PlayerPathColor;
+        image[imageSize-2,imageSize-2] = PlayerPathColor;
 
         SaveImage(image);
     }

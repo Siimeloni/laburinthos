@@ -15,6 +15,7 @@ public class GameManager {
     static byte size;
     static ConnectionNode[,] grid;
     static Player Plyr;
+    public static bool isActive = true; //toggles if player is movable
 
     public readonly static string FilePath = "Assets/labyrinth.bmp";
     public readonly static string DefaultFilePath = "Assets/default.bmp";
@@ -33,14 +34,17 @@ public class GameManager {
                 grid = KruskalGenerator.GenerateLabyrinth(size);
                 break;
         }
+
         LabyrinthPrinter.PrintLabyrinthConnection(grid, size);
     }
 
     public static void PlayerInit() {
         Plyr = new Player();
+        isActive = true;
     }
 
     public static void Moving(Direction direction, MainViewModel context) {
+        if (!isActive) { return; }
         switch (direction) {
             case Direction.Up:
                 if (grid[Plyr.PositionY,Plyr.PositionX].connections[0] == true) {
@@ -74,8 +78,15 @@ public class GameManager {
 
         //check if player is on end-node:
         if (Plyr.PositionX==size-1 && Plyr.PositionY==size-1) {
-            System.Console.WriteLine("Congratulations, you did it. The game is over.");
+            EndGame(context);
         }        
+    }
+
+    static void EndGame(MainViewModel context) {
+            System.Console.WriteLine("Congratulations, you did it. The game is over.");
+            isActive = false;
+            LabyrinthPrinter.PrintFinalStep();
+            context.UpdateImage("Assets/labyrinth.bmp");
     }
 
 }
