@@ -4,7 +4,7 @@ public static class BinaryTreeGenerator{
 
     static ConnectionNode[,] NodeGrid;
 
-    public static void GenerateLabyrinth(byte size) {
+    public static ConnectionNode[,] GenerateLabyrinth(byte size) {
         NodeGrid = ConstructGrid(size);
 
         for (int col = (size-1); col >= 0; col--) {
@@ -13,7 +13,7 @@ public static class BinaryTreeGenerator{
             }
         }
 
-        LabyrinthPrinter.PrintLabyrinthConnection(NodeGrid, size);
+        return NodeGrid;
     }
 
     static ConnectionNode[,] ConstructGrid(byte size) {

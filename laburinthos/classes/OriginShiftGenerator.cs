@@ -7,7 +7,7 @@ public static class OriginShiftGenerator {
     static PointerNode currentOrigin;
     static byte LabyrinthSize;
 
-    public static void GenerateLabyrinth(byte size) {
+    public static ConnectionNode[,] GenerateLabyrinth(byte size) {
         LabyrinthSize = size;
         PointerGrid = ConstructGrid();
 
@@ -17,7 +17,7 @@ public static class OriginShiftGenerator {
         }
 
         ConnectionNode[,] ConnectionGrid = ConvertToConnectionGrid();
-        LabyrinthPrinter.PrintLabyrinthConnection(ConnectionGrid, LabyrinthSize);
+        return ConnectionGrid;
     }
 
     static PointerNode[,] ConstructGrid() {
