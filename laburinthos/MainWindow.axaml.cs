@@ -16,7 +16,7 @@ public partial class MainWindow : Window {
         InitializeComponent();
         DataContext = new MainViewModel();
         context = (MainViewModel)DataContext;
-        context.UpdateImage("Assets/default.bmp");
+        context.UpdateImage(GameManager.DefaultFilePath);
         
         this.KeyDown += OnKeyDown;
     }
@@ -43,8 +43,8 @@ public partial class MainWindow : Window {
                 //hier der aufruf der GameManager Klasse (mit übergabe der Parameter)
                 GameManager.LabyrinthInit(method, modus, size);
                 GameManager.PlayerInit();
-                
-                context.UpdateImage("Assets/labyrinth.bmp");
+
+                context.UpdateImage(GameManager.FilePath);
             } else {
                 ErrorMessage.Background=Brushes.Red;
                 ErrorMessage.Text = "! Fehler ! Eingabe zwischen 5 und 50 !";

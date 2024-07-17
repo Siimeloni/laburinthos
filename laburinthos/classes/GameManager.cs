@@ -16,6 +16,10 @@ public class GameManager {
     static ConnectionNode[,] grid;
     static Player Plyr;
 
+    public readonly static string FilePath = "Assets/labyrinth.bmp";
+    public readonly static string DefaultFilePath = "Assets/default.bmp";
+    
+
     public static void LabyrinthInit(int method, int modus, byte Size) {
         size = Size;
         switch (method) {
@@ -42,28 +46,28 @@ public class GameManager {
                 if (grid[Plyr.PositionY,Plyr.PositionX].connections[0] == true) {
                     Plyr.MoveUp();
                     LabyrinthPrinter.PrintPlayerMovement([Plyr.PositionX,Plyr.PositionY], Direction.Up);
-                    context.UpdateImage("Assets/labyrinth.bmp");
+                    context.UpdateImage(FilePath);
                 }
                 break;
             case Direction.Left:
                 if (grid[Plyr.PositionY,Plyr.PositionX].connections[3] == true) {
                     Plyr.MoveLeft();
                     LabyrinthPrinter.PrintPlayerMovement([Plyr.PositionX,Plyr.PositionY], Direction.Left);
-                    context.UpdateImage("Assets/labyrinth.bmp");
+                    context.UpdateImage(FilePath);
                 }
                 break;
             case Direction.Down:
                 if (grid[Plyr.PositionY,Plyr.PositionX].connections[2] == true) {
                     Plyr.MoveDown();
                     LabyrinthPrinter.PrintPlayerMovement([Plyr.PositionX,Plyr.PositionY], Direction.Down);
-                    context.UpdateImage("Assets/labyrinth.bmp");
+                    context.UpdateImage(FilePath);
                 }
                 break;
             case Direction.Right:
                 if (grid[Plyr.PositionY,Plyr.PositionX].connections[1] == true) {
                     Plyr.MoveRight();
                     LabyrinthPrinter.PrintPlayerMovement([Plyr.PositionX,Plyr.PositionY], Direction.Right);
-                    context.UpdateImage("Assets/labyrinth.bmp");
+                    context.UpdateImage(FilePath);
                 }
                 break;
         }

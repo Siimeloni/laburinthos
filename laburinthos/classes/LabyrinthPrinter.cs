@@ -75,6 +75,6 @@ public static class LabyrinthPrinter {
     static void SaveImage(Image<Rgb24> image) {
         Image<Rgb24> image_out = image.Clone();
         image_out.Mutate(x => x.Resize(scaledImageSize,scaledImageSize, KnownResamplers.NearestNeighbor));
-        image_out.SaveAsBmp("Assets/labyrinth.bmp");
+        image_out.SaveAsBmp(GameManager.FilePath);
     } 
 }
