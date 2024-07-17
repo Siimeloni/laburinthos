@@ -35,9 +35,6 @@ public partial class MainWindow : Window {
             int modus = ModiComboBox.SelectedIndex;
 
             if (5 <= Int32.Parse(SizeTextBox.Text) && Int32.Parse(SizeTextBox.Text) <= 50 ) {
-                ErrorMessage.Background=Brush.Parse("#20283d");
-                ErrorMessage.Text="";
-
                 byte size = byte.Parse(SizeTextBox.Text);
 
                 //hier der aufruf der GameManager Klasse (mit übergabe der Parameter)
@@ -46,12 +43,12 @@ public partial class MainWindow : Window {
                 
                 context.UpdateImage("Assets/labyrinth.bmp");
             } else {
-                ErrorMessage.Background=Brushes.Red;
+                ErrorMessage.Background=Brush.Parse("#953131");
                 ErrorMessage.Text = "! Fehler ! Eingabe zwischen 5 und 50 !";
             }
         }
         catch {
-            ErrorMessage.Background=Brushes.Red;
+            ErrorMessage.Background=Brush.Parse("#953131");
             ErrorMessage.Text = "! Fehler ! Eingabe nicht korrekt !";
         }
     }
@@ -80,7 +77,12 @@ public partial class MainWindow : Window {
             default:
                 break;
         }
+        if (!GameManager.isActive) { EndMessage(); }
+    }
 
+    public void EndMessage() {
+        ErrorMessage.Background=Brush.Parse("#426e5d");
+        ErrorMessage.Text = "You Won - Congratulations!";
     }
     
 }
