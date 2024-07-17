@@ -30,7 +30,7 @@ public static class LabyrinthPrinter {
             image[posX,posY] = PathColor;
 
             if (node.connections[1]) { image[posX+1, posY] = PathColor; }
-            if (node.connections[2]) { image[posX,posY+1] = PathColor;}
+            if (node.connections[2]) { image[posX,posY+1] = PathColor; }
         }
 
         image[1,0] = PlayerPathColor;

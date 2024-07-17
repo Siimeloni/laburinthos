@@ -8,12 +8,11 @@ using System;
 
 namespace laburinthos;
 
-public partial class MainWindow : Window
-{
+public partial class MainWindow : Window {
+
     static MainViewModel context;
 
-    public MainWindow()
-    {
+    public MainWindow() {
         InitializeComponent();
         DataContext = new MainViewModel();
         context = (MainViewModel)DataContext;
@@ -22,14 +21,12 @@ public partial class MainWindow : Window
         this.KeyDown += OnKeyDown;
     }
 
-    private void HelpClick(object sender, RoutedEventArgs e)
-    {
+    private void HelpClick(object sender, RoutedEventArgs e) {
         var window = new HelpWindow();
         window.Show();
     }
     
-    private void RunClick(object sender, RoutedEventArgs e)
-    {
+    private void RunClick(object sender, RoutedEventArgs e) {
         try {
             ErrorMessage.Background=Brush.Parse("#20283d");
             ErrorMessage.Text="";
@@ -37,7 +34,7 @@ public partial class MainWindow : Window
             int method = MethodeComboBox.SelectedIndex;
             int modus = ModiComboBox.SelectedIndex;
 
-            if (5 <= Int32.Parse(SizeTextBox.Text) && Int32.Parse(SizeTextBox.Text) <= 50 ){
+            if (5 <= Int32.Parse(SizeTextBox.Text) && Int32.Parse(SizeTextBox.Text) <= 50 ) {
                 ErrorMessage.Background=Brush.Parse("#20283d");
                 ErrorMessage.Text="";
 
@@ -46,13 +43,14 @@ public partial class MainWindow : Window
                 //hier der aufruf der GameManager Klasse (mit übergabe der Parameter)
                 GameManager.LabyrinthInit(method, modus, size);
                 GameManager.PlayerInit();
+                
                 context.UpdateImage("Assets/labyrinth.bmp");
-            }else {
+            } else {
                 ErrorMessage.Background=Brushes.Red;
                 ErrorMessage.Text = "! Fehler ! Eingabe zwischen 5 und 50 !";
             }
         }
-        catch{
+        catch {
             ErrorMessage.Background=Brushes.Red;
             ErrorMessage.Text = "! Fehler ! Eingabe nicht korrekt !";
         }

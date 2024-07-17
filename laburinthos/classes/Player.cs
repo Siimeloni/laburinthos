@@ -5,16 +5,16 @@ public class Player{
     public int PositionX { get => posX; }
     public int PositionY { get => posY; }
 
-    public void MoveRight(){
+    public void MoveRight() {
         posX = posX + 1;
     }
-    public void MoveLeft(){
+    public void MoveLeft() {
         posX = posX - 1;
     }
-    public void MoveUp(){
+    public void MoveUp() {
         posY = posY - 1;
     }
-    public void MoveDown(){
+    public void MoveDown() {
         posY = posY + 1;
     }
 

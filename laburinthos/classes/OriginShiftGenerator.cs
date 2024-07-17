@@ -10,8 +10,8 @@ public static class OriginShiftGenerator {
     public static ConnectionNode[,] GenerateLabyrinth(byte size) {
         LabyrinthSize = size;
         PointerGrid = ConstructGrid();
-
         int numberOfIterations = (int)Math.Pow(LabyrinthSize, 3);
+
         for (int i = 0; i < numberOfIterations; i++) {
             ShiftOrigin();
         }
@@ -36,7 +36,7 @@ public static class OriginShiftGenerator {
                 grid[row,lastCol] = new PointerNode(row,lastCol, false, true); //Pointer : Down
             }
         }
-            return grid;
+        return grid;
     }
 
         
@@ -46,8 +46,8 @@ public static class OriginShiftGenerator {
         List<Direction> directions = GetValidPointers(); 
         int index = rand.Next(0,directions.Count);
         Direction newPointerDirection = directions[index];
-
         currentOrigin.SetPointer(newPointerDirection);
+        
         switch (newPointerDirection) {
             case Direction.Up:
                 currentOrigin = PointerGrid[currentOrigin.positionY-1,currentOrigin.positionX];
