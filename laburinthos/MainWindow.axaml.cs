@@ -54,12 +54,12 @@ public partial class MainWindow : Window {
                 context.UpdateImage(GameManager.FilePath);
             } else {
                 ErrorMessage.Background=Brush.Parse("#953131");
-                ErrorMessage.Text = "! Fehler ! Eingabe zwischen 5 und 50 !";
+                ErrorMessage.Text = "! Error ! Input between 5 and 50 !";
             }
         }
         catch {
             ErrorMessage.Background=Brush.Parse("#953131");
-            ErrorMessage.Text = "! Fehler ! Eingabe nicht korrekt !";
+            ErrorMessage.Text = "! Error ! Input incorrect !";
         }
     }
 
