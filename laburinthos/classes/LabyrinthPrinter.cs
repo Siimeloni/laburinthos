@@ -14,26 +14,35 @@ public static class LabyrinthPrinter {
     static Rgb24 PlayerColor = new Rgb24(149, 49, 49);        // Color of the Players Position
     static Rgb24 PlayerPathColor = new Rgb24(193, 112, 112);  // Color of all Paths the Player has already stepped on
 
-    public static void PrintLabyrinth(ConnectionNode[,] grid, byte size) {
+    public static void PrintLabyrinth(ConnectionNode[,] grid, byte size, int modus) {
         imageSize = 2*size+1;
         image = new Image<Rgb24>(imageSize, imageSize);
         scaledImageSize = (int)(imageSize*Math.Floor(700.0/imageSize));
 
+        // Fill background
         for (int i = 0; i<imageSize; i++) {
             for (int j = 0; j<imageSize; j++) {
                 image[i,j] = WallColor;
             }
         }
 
-        foreach (ConnectionNode node in grid) {
+        // Fill path
+        if (modus == 0) {
+            foreach (ConnectionNode node in grid) {
             int posX = 2*node.positionX+1;
             int posY = 2*node.positionY+1;
             image[posX,posY] = PathColor;
 
             if (node.connections[1]) { image[posX+1, posY] = PathColor; }
             if (node.connections[2]) { image[posX,posY+1] = PathColor; }
+            }
+        } else {
+            if (grid[0,0].connections[1]) { image[2, 1] = PathColor; }
+            if (grid[0,0].connections[2]) { image[1,2] = PathColor; }
         }
+        
 
+        // Color rim pixels
         image[1,0] = PlayerPathColor;
         image[1,1] = PlayerColor;
         image[imageSize-2, imageSize-1] = PathColor;
@@ -41,10 +50,17 @@ public static class LabyrinthPrinter {
         SaveImage(image);
     }
 
-    public static void PrintPlayerMovement(int[] position, Direction direction) {
-        int posX = 2*position[0]+1;
-        int posY = 2*position[1]+1;
+    public static void PrintPlayerMovement(ConnectionNode node, Direction direction) {
+        int posX = 2*node.positionX+1;
+        int posY = 2*node.positionY+1;
 
+        // Fill possible moving directions
+        if (node.connections[0] && image[posX,posY-1]!=PlayerPathColor) { image[posX,posY-1] = PathColor; }
+        if (node.connections[1] && image[posX+1,posY]!=PlayerPathColor) { image[posX+1,posY] = PathColor; }
+        if (node.connections[2] && image[posX,posY+1]!=PlayerPathColor) { image[posX,posY+1] = PathColor; }
+        if (node.connections[3] && image[posX-1,posY]!=PlayerPathColor) { image[posX-1,posY] = PathColor; }
+
+        // Print new player positions and move path
         switch (direction) {
             case Direction.Up:
                 image[posX,posY] = PlayerColor;

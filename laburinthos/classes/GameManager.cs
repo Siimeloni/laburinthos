@@ -2,16 +2,6 @@ using laburinthos.ViewModels;
 
 public class GameManager {
 
-    enum Method {
-        BinaryTree,
-        OriginShift,
-        RandomizeKruskal
-    }
-    enum Modus {
-        normal,
-        blind
-    }
-
     static byte size;
     static ConnectionNode[,] grid;
     static Player Plyr;
@@ -35,7 +25,7 @@ public class GameManager {
                 break;
         }
 
-        LabyrinthPrinter.PrintLabyrinth(grid, size);
+        LabyrinthPrinter.PrintLabyrinth(grid, size, modus);
     }
 
     public static void PlayerInit() {
@@ -45,32 +35,37 @@ public class GameManager {
 
     public static void Moving(Direction direction, MainViewModel context) {
         if (!isActive) { return; }
+        ConnectionNode node = grid[Plyr.PositionY,Plyr.PositionX];
         switch (direction) {
             case Direction.Up:
-                if (grid[Plyr.PositionY,Plyr.PositionX].connections[0] == true) {
+                if (node.connections[0] == true) {
                     Plyr.MoveUp();
-                    LabyrinthPrinter.PrintPlayerMovement([Plyr.PositionX,Plyr.PositionY], Direction.Up);
+                    node = grid[Plyr.PositionY,Plyr.PositionX];
+                    LabyrinthPrinter.PrintPlayerMovement(node, Direction.Up);
                     context.UpdateImage(FilePath);
                 }
                 break;
             case Direction.Left:
-                if (grid[Plyr.PositionY,Plyr.PositionX].connections[3] == true) {
+                if (node.connections[3] == true) {
                     Plyr.MoveLeft();
-                    LabyrinthPrinter.PrintPlayerMovement([Plyr.PositionX,Plyr.PositionY], Direction.Left);
+                    node = grid[Plyr.PositionY,Plyr.PositionX];
+                    LabyrinthPrinter.PrintPlayerMovement(node, Direction.Left);
                     context.UpdateImage(FilePath);
                 }
                 break;
             case Direction.Down:
-                if (grid[Plyr.PositionY,Plyr.PositionX].connections[2] == true) {
+                if (node.connections[2] == true) {
                     Plyr.MoveDown();
-                    LabyrinthPrinter.PrintPlayerMovement([Plyr.PositionX,Plyr.PositionY], Direction.Down);
+                    node = grid[Plyr.PositionY,Plyr.PositionX];
+                    LabyrinthPrinter.PrintPlayerMovement(node, Direction.Down);
                     context.UpdateImage(FilePath);
                 }
                 break;
             case Direction.Right:
-                if (grid[Plyr.PositionY,Plyr.PositionX].connections[1] == true) {
+                if (node.connections[1] == true) {
                     Plyr.MoveRight();
-                    LabyrinthPrinter.PrintPlayerMovement([Plyr.PositionX,Plyr.PositionY], Direction.Right);
+                    node = grid[Plyr.PositionY,Plyr.PositionX];
+                    LabyrinthPrinter.PrintPlayerMovement(node, Direction.Right);
                     context.UpdateImage(FilePath);
                 }
                 break;
