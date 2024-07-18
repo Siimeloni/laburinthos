@@ -12,6 +12,11 @@ public class ConnectionNode : Node {
         this.set = set;
     }
 
+    /// <summary>
+    /// Assigns the nodes a new valid connection direction
+    /// </summary>
+    /// <param name="direction"></param>
+    /// <exception cref="NotImplementedException"></exception>
     public void SetConnection(Direction direction) {
         switch (direction) {
             case Direction.Up:

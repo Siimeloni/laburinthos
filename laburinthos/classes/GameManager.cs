@@ -20,7 +20,12 @@ public class GameManager {
     public readonly static string FilePath = "Assets/labyrinth.bmp";
     public readonly static string DefaultFilePath = "Assets/default.bmp";
     
-
+    /// <summary>
+    /// Initialization of the labyrinth - calling the desired algorithm
+    /// </summary>
+    /// <param name="method"></param>
+    /// <param name="modus"></param>
+    /// <param name="Size"></param>
     public static void LabyrinthInit(int method, int modus, byte Size) {
         size = Size;
         switch (method) {
@@ -38,11 +43,19 @@ public class GameManager {
         LabyrinthPrinter.PrintLabyrinth(grid, size);
     }
 
+    /// <summary>
+    /// Initialize player; activate movement for it
+    /// </summary>
     public static void PlayerInit() {
         Plyr = new Player();
         isActive = true;
     }
 
+    /// <summary>
+    /// Reaction according to the desired movement. Player movement; call LabyrinthPrinter; update of image in GUI.
+    /// </summary>
+    /// <param name="direction"></param>
+    /// <param name="context"></param>
     public static void Moving(Direction direction, MainViewModel context) {
         if (!isActive) { return; }
         switch (direction) {
@@ -82,6 +95,10 @@ public class GameManager {
         }        
     }
 
+    /// <summary>
+    /// Reaction when game is won - no more player movements possible; update image
+    /// </summary>
+    /// <param name="context"></param>
     static void EndGame(MainViewModel context) {
             System.Console.WriteLine("Congratulations, you did it. The game is over.");
             isActive = false;
