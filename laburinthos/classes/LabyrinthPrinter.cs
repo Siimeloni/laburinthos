@@ -6,8 +6,11 @@ using SixLabors.ImageSharp.Processing;
 public static class LabyrinthPrinter {
 
     static Image<Rgb24> image;
+    static Image<Rgb24> emptyImage;
     static int scaledImageSize;
     static int imageSize;
+
+    static int mode;
 
     static Rgb24 WallColor = new Rgb24(66, 110, 93);          // Color of Walls
     static Rgb24 PathColor = new Rgb24(229, 176, 131);        // Color of Paths
@@ -18,6 +21,7 @@ public static class LabyrinthPrinter {
         imageSize = 2*size+1;
         image = new Image<Rgb24>(imageSize, imageSize);
         scaledImageSize = (int)(imageSize*Math.Floor(700.0/imageSize));
+        mode = modus;
 
         // Fill background
         for (int i = 0; i<imageSize; i++) {
@@ -27,32 +31,50 @@ public static class LabyrinthPrinter {
         }
 
         // Fill path
-        if (modus == 0) {
-            foreach (ConnectionNode node in grid) {
-            int posX = 2*node.positionX+1;
-            int posY = 2*node.positionY+1;
-            image[posX,posY] = PathColor;
+        switch (mode) {
+            case 0:
+                foreach (ConnectionNode node in grid) {
+                int posX = 2*node.positionX+1;
+                int posY = 2*node.positionY+1;
+                image[posX,posY] = PathColor;
 
-            if (node.connections[1]) { image[posX+1, posY] = PathColor; }
-            if (node.connections[2]) { image[posX,posY+1] = PathColor; }
-            }
-        } else {
-            if (grid[0,0].connections[1]) { image[2, 1] = PathColor; }
-            if (grid[0,0].connections[2]) { image[1,2] = PathColor; }
+                if (node.connections[1]) { image[posX+1, posY] = PathColor; }
+                if (node.connections[2]) { image[posX,posY+1] = PathColor; }
+                }
+                break;
+            case 1:
+                if (grid[0,0].connections[1]) { image[2, 1] = PathColor; }
+                if (grid[0,0].connections[2]) { image[1,2] = PathColor; }
+                break;
+            default:
+                break;
         }
         
 
         // Color rim pixels
-        image[1,0] = PlayerPathColor;
-        image[1,1] = PlayerColor;
-        image[imageSize-2, imageSize-1] = PathColor;
+        if (mode != 2) {
+            image[1,0] = PlayerPathColor;
+            image[1,1] = PlayerColor;
+            image[imageSize-2, imageSize-1] = PathColor;
+        } else {
+            image[1,0] = PathColor;
+            image[imageSize-2, imageSize-1] = PathColor;
+            emptyImage = image.Clone();
+            PrintPlayerMovement(grid[0,0], null);
+            image[1,1] = PlayerColor;
+        }
 
         SaveImage(image);
     }
 
-    public static void PrintPlayerMovement(ConnectionNode node, Direction direction) {
+    public static void PrintPlayerMovement(ConnectionNode node, Direction ?direction) {
         int posX = 2*node.positionX+1;
         int posY = 2*node.positionY+1;
+        
+        if (mode == 2) {
+            image = emptyImage.Clone();
+            image[posX,posY] = PlayerColor;
+        }
 
         // Fill possible moving directions
         if (node.connections[0] && image[posX,posY-1]!=PlayerPathColor) { image[posX,posY-1] = PathColor; }
@@ -61,29 +83,31 @@ public static class LabyrinthPrinter {
         if (node.connections[3] && image[posX-1,posY]!=PlayerPathColor) { image[posX-1,posY] = PathColor; }
 
         // Print new player positions and move path
-        switch (direction) {
-            case Direction.Up:
-                image[posX,posY] = PlayerColor;
-                image[posX,posY+1] = PlayerPathColor;
-                image[posX,posY+2] = PlayerPathColor;
-                break;
-            case Direction.Right:
-                image[posX,posY] = PlayerColor;
-                image[posX-1,posY] = PlayerPathColor;
-                image[posX-2,posY] = PlayerPathColor;
-                break;
-            case Direction.Down:
-                image[posX,posY] = PlayerColor;
-                image[posX,posY-1] = PlayerPathColor;
-                image[posX,posY-2] = PlayerPathColor;
-                break;
-            case Direction.Left:
-                image[posX,posY] = PlayerColor;
-                image[posX+1,posY] = PlayerPathColor;
-                image[posX+2,posY] = PlayerPathColor;
-                break;
-            default:
-                break;
+        if (mode != 2 && direction != null) {
+            switch (direction) {
+                case Direction.Up:
+                    image[posX,posY] = PlayerColor;
+                    image[posX,posY+1] = PlayerPathColor;
+                    image[posX,posY+2] = PlayerPathColor;
+                    break;
+                case Direction.Right:
+                    image[posX,posY] = PlayerColor;
+                    image[posX-1,posY] = PlayerPathColor;
+                    image[posX-2,posY] = PlayerPathColor;
+                    break;
+                case Direction.Down:
+                    image[posX,posY] = PlayerColor;
+                    image[posX,posY-1] = PlayerPathColor;
+                    image[posX,posY-2] = PlayerPathColor;
+                    break;
+                case Direction.Left:
+                    image[posX,posY] = PlayerColor;
+                    image[posX+1,posY] = PlayerPathColor;
+                    image[posX+2,posY] = PlayerPathColor;
+                    break;
+                default:
+                    break;
+            }
         }
 
         SaveImage(image);
