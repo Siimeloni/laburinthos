@@ -20,6 +20,11 @@ public class PointerNode : Node {
         this.pointer = null;
     }
 
+    /// <summary>
+    /// Changes direction of pointer
+    /// </summary>
+    /// <param name="pntr"></param>
+    /// <exception cref="NotImplementedException"></exception>
     public void SetPointer(Direction ?pntr) {
         if (pntr == null) {
             throw new NotImplementedException();

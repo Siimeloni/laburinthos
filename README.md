@@ -27,15 +27,16 @@ Es wurden drei unterschiedliche Algorithmen für die Erstellung der Labyrinthe v
 
 Die eben genannten Algorithmen werden im Wiki dieses Repositorys näher erläutert. 
 
-Es kann zwischen dem "normalen" oder "blinden" Spielmodus gewählt werden.
-Bei der standardmäßigen Variante sieht der Nutzer das gesamte zu durchlaufende Labyrinth.
-Bei dem "blinden" Spielmodus ist stehts nur ein Außschnitt, um die aktuelle Position des Spielers, für den Nutzer sichtbar. 
+Es kann zwischen dem "Normal", "Blind" oder "Double Blind" Spielmodus gewählt werden.
+Bei der standardmäßigen Variante sieht der Nutzer das gesamte zu durchlaufende Labyrinth, sowie den zurück gelegten Weg. 
+Bei dem "Blind" Spielmodus sind stehts nur die Möglichen nächsten Wege, um die aktuelle Position des Spielers, für den Nutzer sichtbar. 
+Beim "Double Blind" Spielmodus ist nur die Position, sowie die nächsten Wege sichtbar, jedoch nicht der zurückgelegte Weg. 
 
 
 ## Verwendungshinweise / Anleitung
 
 Nach dem Start der Anwendung ist auf der linken Seite ein "default"-Labyrinth erkennbar, während sich auf der rechten Seite die Kon­fi­gu­ra­ti­ons­mög­lich­keiten für ein Labyrinth befinden. 
-Zuerst erfolgt, durch eine ComboBox, die Auswahlmöglichkeit eines Algorithmus. Hierbei ist der "Binary Tree" standardmäßig gesetzt. Anschließend kann die Größe des Labyrinth bestimmt werden. Die Kantenlänge darf hier in einem Bereich von 5 bis 50 liegen, damit eine ausreichend gute Auflösung gewährleistet werden kann. In einer weiteren ComboBox ist der Spielmodus ("normal"(standardmäßig) oder "blind") auszuwählen. 
+Zuerst erfolgt, durch eine ComboBox, die Auswahlmöglichkeit eines Algorithmus. Hierbei ist der "Binary Tree" standardmäßig gesetzt. Anschließend kann die Größe des Labyrinth bestimmt werden. Die Kantenlänge darf hier in einem Bereich von 5 bis 50 liegen, damit eine ausreichend gute Auflösung gewährleistet werden kann. In einer weiteren ComboBox ist der Spielmodus ("Normal"(standardmäßig), "Blind", "Double Blind") auszuwählen. 
 Durch die Betätigung des Buttons wird das Labyrinth erstellt. 
 
 Die Steuerung des Spielers (Farbiger Pixel) erfolgt über die Pfeiltasten der Tastatur oder über die Tasten W-A-S-D. Mit der Taste "N" kann ein neues Labyrinth, mit den gleichen Einstellungen, erstelt werden. Der Spieler startet stehts in der linken oberen Ecke und muss das letzte rechte untere Feld erreichen. Das "Laufen" ist nur auf den Wegen möglich, während Wände undurchdringlich sind. Sollte der Spieler das Ziel erreichen, wird er informiert und es sind keine weiteren Bewegungen mehr möglich. 

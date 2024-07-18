@@ -7,6 +7,11 @@ public static class KruskalGenerator{
     static List<Connection> ConnectionList; 
     static byte LabyrinthSize;
 
+    /// <summary>
+    /// Generating the labyrinth with Randomized Kruskal's Algorithmus
+    /// </summary>
+    /// <param name="size"></param>
+    /// <returns></returns>
     public static ConnectionNode[,] GenerateLabyrinth(byte size) {
         LabyrinthSize = size;
         NodeGrid = ConstructGrid();
@@ -66,6 +71,12 @@ public static class KruskalGenerator{
         }
     }
 
+    /// <summary>
+    /// Connects the nodes
+    /// </summary>
+    /// <param name="node1"></param>
+    /// <param name="node2"></param>
+    /// <param name="isVertical"></param>
     static void ConnectNodes(ConnectionNode node1, ConnectionNode node2, bool isVertical) {
         if (isVertical) {
             node1.SetConnection(Direction.Down);

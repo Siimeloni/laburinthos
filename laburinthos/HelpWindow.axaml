@@ -2,9 +2,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="300"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="400"
         x:Class="laburinthos.HelpWindow"
-        Title="Laburinthos"
+        Title="laburinthos"
         Icon="/Assets/icon.ico"
         SizeToContent="WidthAndHeight">
 
@@ -23,19 +23,26 @@
     </Window.Styles>
 
     <Grid Background="#20283d" 
-        RowDefinitions="*,*,*"
+        RowDefinitions="*,4*"
         ColumnDefinitions="*">
         <TextBlock Classes="h1" Grid.Row="0" Grid.Column="0" Margin="20" Foreground="#f2d7c0">
-            Nutzungshinweise zu Laburinthos
+            Instructions for use of laburinthos
         </TextBlock>
         <TextBlock Classes="h3" Grid.Row="1" Grid.Column="0" Margin="20" Foreground="#f2d7c0"
         xml:space="preserve" Name="HelpBox">
-            Es handelt sich um einen Labyrinth-Generator.
-            
-            Zur Verwendung:
-            1. Felder ausfüllen
-            2. Auf Button klicken Labyrinth erstellen
-            3. Spieler durch Labyrinth führen (mit Pfeiltasten)
+            How to use:
+
+            1. Fill in the fields accordingly
+                a   Select algorithm
+                b   Select grid size (5 to 50)
+                c   Select game mode 
+                    (Normal - the labyrinth is visible; 
+                    Blind: Only the player position + the path taken is visible; 
+                    Double Blind: Only the player position is visible)
+
+            2. Click on the button "Create a labyrinth"
+
+            3. Guide the player through the labyrinth (with arrow keys or WASD)
         </TextBlock>
 
     </Grid>

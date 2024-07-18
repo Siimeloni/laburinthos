@@ -21,11 +21,21 @@ public partial class MainWindow : Window {
         this.KeyDown += OnKeyDown;
     }
 
+    /// <summary>
+    /// Event that opens an additional window with information.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void HelpClick(object sender, RoutedEventArgs e) {
         var window = new HelpWindow();
         window.Show();
     }
     
+    /// <summary>
+    /// Event that checks the input and calls the GameManager to initialize the labyrinth and the player.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void RunClick(object sender, RoutedEventArgs e) {
         try {
             ErrorMessage.Background=Brush.Parse("#20283d");
@@ -37,22 +47,27 @@ public partial class MainWindow : Window {
             if (5 <= Int32.Parse(SizeTextBox.Text) && Int32.Parse(SizeTextBox.Text) <= 50 ) {
                 byte size = byte.Parse(SizeTextBox.Text);
 
-                //hier der aufruf der GameManager Klasse (mit übergabe der Parameter)
+                //here the call to the GameManager class (with passing of the parameters)
                 GameManager.LabyrinthInit(method, modus, size);
                 GameManager.PlayerInit();
 
                 context.UpdateImage(GameManager.FilePath);
             } else {
                 ErrorMessage.Background=Brush.Parse("#953131");
-                ErrorMessage.Text = "! Fehler ! Eingabe zwischen 5 und 50 !";
+                ErrorMessage.Text = "! Error ! Input between 5 and 50 !";
             }
         }
         catch {
             ErrorMessage.Background=Brush.Parse("#953131");
-            ErrorMessage.Text = "! Fehler ! Eingabe nicht korrekt !";
+            ErrorMessage.Text = "! Error ! Input incorrect !";
         }
     }
 
+    /// <summary>
+    /// Event that registers the keyboard input (hotkey) and passes it on to GameManager.Moving.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void OnKeyDown(object sender, KeyEventArgs e) {
         switch (e.Key) {
             case Key.Up:
@@ -80,6 +95,9 @@ public partial class MainWindow : Window {
         if (!GameManager.isActive) { EndMessage(); }
     }
 
+    /// <summary>
+    /// Info for users about won game on GUI
+    /// </summary>
     public void EndMessage() {
         ErrorMessage.Background=Brush.Parse("#426e5d");
         ErrorMessage.Text = "You Won - Congratulations!";

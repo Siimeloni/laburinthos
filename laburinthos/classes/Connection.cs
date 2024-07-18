@@ -13,6 +13,10 @@ public class Connection {
         }
     }
 
+    /// <summary>
+    /// checks if both nodes are in the same set
+    /// </summary>
+    /// <returns></returns>
     public bool CheckSameSet() {
         if (nodeLeft.set == nodeRight.set) {
             return true;
