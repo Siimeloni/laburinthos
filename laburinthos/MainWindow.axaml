@@ -97,6 +97,8 @@
             <Button Height="30" HorizontalAlignment="Stretch" Margin="10" Click="RunClick">
                 Create a labyrinth
             </Button>
+            <Image Grid.Row="0" Grid.Column="1" Margin="20" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+            Source="/Assets/Controls.bmp"/>
 
             
         </StackPanel>
