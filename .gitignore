@@ -1,10 +1,13 @@
 *
 
+!.vscode/
+!.vscode/**
 !.gitignore
 !README.md
 !laburinthos.sln
 !laburinthos/
 !laburinthos/**
+laburinthos/Assets/labyrinth.bmp
 
 laburinthos/bin/
 laburinthos/obj/
