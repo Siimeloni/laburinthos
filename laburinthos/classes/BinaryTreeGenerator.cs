@@ -4,6 +4,11 @@ public static class BinaryTreeGenerator{
 
     static ConnectionNode[,] NodeGrid;
 
+    /// <summary>
+    /// Generating the labyrinth with Binary Tree Algorithmus
+    /// </summary>
+    /// <param name="size"></param>
+    /// <returns></returns>
     public static ConnectionNode[,] GenerateLabyrinth(byte size) {
         NodeGrid = ConstructGrid(size);
 

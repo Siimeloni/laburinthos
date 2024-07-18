@@ -7,6 +7,11 @@ public static class OriginShiftGenerator {
     static PointerNode currentOrigin;
     static byte LabyrinthSize;
 
+    /// <summary>
+    /// Generating the labyrinth with Origin Shift
+    /// </summary>
+    /// <param name="size"></param>
+    /// <returns></returns>
     public static ConnectionNode[,] GenerateLabyrinth(byte size) {
         LabyrinthSize = size;
         PointerGrid = ConstructGrid();
@@ -40,7 +45,10 @@ public static class OriginShiftGenerator {
     }
 
         
-
+    /// <summary>
+    /// Changes the origin in a random direction
+    /// </summary>
+    /// <exception cref="NotImplementedException"></exception>
     static void ShiftOrigin() {
         var rand = new Random();
         List<Direction> directions = GetValidPointers(); 
@@ -81,6 +89,10 @@ public static class OriginShiftGenerator {
         return validPointers;
     }
 
+    /// <summary>
+    /// Pointer-Grid becomes Connection-Grid; then shows the same behavior as results of the other generators
+    /// </summary>
+    /// <returns></returns>
     static ConnectionNode[,] ConvertToConnectionGrid() {
         ConnectionNode[,] connecGrid = new ConnectionNode[LabyrinthSize,LabyrinthSize];
         Direction ?direction;
