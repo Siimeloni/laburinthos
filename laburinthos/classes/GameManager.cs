@@ -95,7 +95,6 @@ public class GameManager {
     /// </summary>
     /// <param name="context"></param>
     static void EndGame(MainViewModel context) {
-            System.Console.WriteLine("Congratulations, you did it. The game is over.");
             isActive = false;
             LabyrinthPrinter.PrintFinalStep();
             context.UpdateImage(FilePath);

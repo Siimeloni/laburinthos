@@ -17,6 +17,12 @@ public static class LabyrinthPrinter {
     static Rgb24 PlayerColor = new Rgb24(149, 49, 49);        // Color of the Players Position
     static Rgb24 PlayerPathColor = new Rgb24(193, 112, 112);  // Color of all Paths the Player has already stepped on
 
+    /// <summary>
+    /// prints the original labyrinth
+    /// </summary>
+    /// <param name="grid"></param>
+    /// <param name="size"></param>
+    /// <param name="modus"></param>
     public static void PrintLabyrinth(ConnectionNode[,] grid, byte size, int modus) {
         imageSize = 2*size+1;
         image = new Image<Rgb24>(imageSize, imageSize);
@@ -67,6 +73,11 @@ public static class LabyrinthPrinter {
         SaveImage(image);
     }
 
+    /// <summary>
+    /// Records the movement of the player
+    /// </summary>
+    /// <param name="node"></param>
+    /// <param name="direction"></param>
     public static void PrintPlayerMovement(ConnectionNode node, Direction ?direction) {
         int posX = 2*node.positionX+1;
         int posY = 2*node.positionY+1;
