@@ -4,6 +4,14 @@
 !.vscode/**
 !.gitignore
 !README.md
+!release.sh
+!PublishLinux-x64/
+!PublishLinux-x64/**
+!PublishWindows-x64/
+!PublishWindows-x64/**
+!linux-x64.zip
+!windows-x64.zip
+
 !laburinthos.sln
 !laburinthos/
 !laburinthos/**
