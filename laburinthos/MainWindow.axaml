@@ -52,7 +52,7 @@
     <!-- Oberfläche -->
     <Grid Background="#20283d" 
         RowDefinitions="10*,80*,10*"
-        ColumnDefinitions="60*,35*,5*">
+        ColumnDefinitions="70*,25*,5*">
 
         <!-- Kopfzeile  -->
         <Image Grid.Row="0" Grid.Column="1" Margin="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"

@@ -26,12 +26,10 @@
         RowDefinitions="*,4*"
         ColumnDefinitions="*">
         <TextBlock Classes="h1" Grid.Row="0" Grid.Column="0" Margin="20" Foreground="#f2d7c0">
-            Instructions for use of laburinthos
+            How to use laburinthos
         </TextBlock>
         <TextBlock Classes="h3" Grid.Row="1" Grid.Column="0" Margin="20" Foreground="#f2d7c0"
         xml:space="preserve" Name="HelpBox">
-            How to use:
-
             1. Fill in the fields accordingly
                 a   Select algorithm
                 b   Select grid size (5 to 50)
