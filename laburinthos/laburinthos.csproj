@@ -17,7 +17,7 @@
     <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.10" />
     <AvaloniaResource Include="Assets\**" />
     <PackageReference Include="SixLabors.ImageSharp" Version="3.1.4" />
-    <Content>
+    <Content Include="AppData\**">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
