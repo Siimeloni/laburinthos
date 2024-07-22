@@ -5,12 +5,12 @@
 !.gitignore
 !README.md
 !release.sh
-!PublishLinux-x64/
-!PublishLinux-x64/**
-!PublishWindows-x64/
-!PublishWindows-x64/**
-!linux-x64.zip
-!windows-x64.zip
+!laburinthos-linux-x64/
+!laburinthos-linux-x64/**
+!laburinthos-windows-x64/
+!laburinthos-windows-x64/**
+!laburinthos-linux-x64.zip
+!laburinthos-windows-x64.zip
 
 !laburinthos.sln
 !laburinthos/
